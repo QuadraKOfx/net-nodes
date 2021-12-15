@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-3 float-start">
+    <button (click)="switchModes()"
+            class="btn btn-primary btn-sm" style="float: right">
+      Change View
+    </button>
+  </div>
+</div>
+
+
+<div class="row mt-5 p-6">
+  <ng-container *ngIf="mode === 'Link'; else gantt">
+    <app-link-graph></app-link-graph>
+  </ng-container>
+
+  <ng-template #gantt>
+    <gantt-graph></gantt-graph>
+  </ng-template>
+
+  <div class="upload-container">
+    <upload-file></upload-file>
+  </div>
+</div>
+
